@@ -12,9 +12,7 @@ export default {
     };
   },
   methods: {
-    searchFilms() {
-      this.store.getFilmsList();
-    },
+
   },
 };
 </script>
@@ -22,8 +20,15 @@ export default {
 <template>
   <h1>Main</h1>
   <AppSearch />
-  <div v-for="movie in store.moviesList">
-    <p>{{ movie.title }}</p>
+  <div v-for="movie in store.moviesList" :key="movie.id">
+    <ol>
+      <li>
+        <h2>Title: {{ movie.title }} </h2>
+        <p> Original Title: {{ movie.original_title }}</p>
+        <p>Language {{ movie.original_language }}</p>
+        <p>Vote Average: {{ movie.vote_average }}</p>
+      </li>
+    </ol>
 
   </div>
 </template>

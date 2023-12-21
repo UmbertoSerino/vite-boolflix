@@ -15,6 +15,7 @@ export const store = reactive({
         })
             .then((response) => {
                 this.moviesList = response.data.results;
+                console.log(response)
             })
             .catch(function (error) {
                 console.log(error);
