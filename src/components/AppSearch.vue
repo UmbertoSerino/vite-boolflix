@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Search for Films</h1>
+        <h2>Search for Films</h2>
+        <p>result: {{ searchResult() }}</p>
         <input type="text" placeholder="Search films" v-model="searchFilms" @keyup.enter="store.getFilmsList(searchFilms)">
         <button @click="store.getFilmsList(searchFilms)">Search</button>
     </div>
@@ -16,7 +17,9 @@ export default {
         };
     },
     methods: {
-
+        searchResult() {
+            return this.store.moviesList.length;
+        }
     },
 };
 </script>

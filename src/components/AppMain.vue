@@ -1,10 +1,12 @@
 <script>
-import AppSearch from './AppSearch.vue';
 import { store } from '../js/store';
+import AppSearch from './AppSearch.vue';
+import AppResultsCard from './AppResultsCard.vue';
 export default {
   name: 'AppMain',
   components: {
-    AppSearch
+    AppSearch,
+    AppResultsCard
   },
   data() {
     return {
@@ -20,17 +22,7 @@ export default {
 <template>
   <h1>Main</h1>
   <AppSearch />
-  <div v-for="movie in store.moviesList" :key="movie.id">
-    <ol>
-      <li>
-        <h2>Title: {{ movie.title }} </h2>
-        <p> Original Title: {{ movie.original_title }}</p>
-        <p>Language {{ movie.original_language }}</p>
-        <p>Vote Average: {{ movie.vote_average }}</p>
-      </li>
-    </ol>
-
-  </div>
+  <AppResultsCard />
 </template>
 
 <style lang="scss" scoped></style>
