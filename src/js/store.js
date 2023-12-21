@@ -1,33 +1,25 @@
 import { reactive } from 'vue'
-import axios from 'vue'
-
-const myApiKey = 'f9eba7e9175561429bac90d77bb25cab';
-const query = '';
+import axios from 'axios'
 
 export const store = reactive({
-    const options = {
-        method: 'GET',
-        url: 'https://api.themoviedb.org/3/discover/movie',
-        params: {
-            include_adult: 'false',
-            include_video: 'true',
-            language: 'it-IT',
-            page: '1',
-            sort_by: 'popularity.desc'
-        },
-        headers: {
-            accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmOWViYTdlOTE3NTU2MTQyOWJhYzkwZDc3YmIyNWNhYiIsInN1YiI6IjY1ODJjMmEwMTgwZGVhNTNmNDhiZGE4ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bKbM7TgVS5xU4BtJ7K8DWYNdyEyLQfgdPYucRFebrdI'
-        }
+    searchFilms: '',
+    moviesList: [],
+    myApiKey: 'f9eba7e9175561429bac90d77bb25cab',
+
+    getFilmsList() {
+        axios.get('https://api.themoviedb.org/3/search/movie', {
+            params: {
+                query: this.searchFilms,
+                api_key: this.myApiKey,
+            }
+        })
+            .then((response) => {
+                console.log(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            .finally(function () {
+            });
     },
-
-    axios
-      .request(options)
-        .then(function (response) {
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.error(error);
-        })
-
 });
