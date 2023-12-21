@@ -22,6 +22,10 @@ export default {
 <template>
   <h1>Main</h1>
   <AppSearch />
+  <div v-for="movie in store.moviesList">
+    <p>{{ movie.title }}</p>
+
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

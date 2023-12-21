@@ -6,15 +6,15 @@ export const store = reactive({
     moviesList: [],
     myApiKey: 'f9eba7e9175561429bac90d77bb25cab',
 
-    getFilmsList() {
+    getFilmsList(Films) {
         axios.get('https://api.themoviedb.org/3/search/movie', {
             params: {
-                query: this.searchFilms,
+                query: Films,
                 api_key: this.myApiKey,
             }
         })
             .then((response) => {
-                console.log(response.data)
+                this.moviesList = response.data.results;
             })
             .catch(function (error) {
                 console.log(error);
