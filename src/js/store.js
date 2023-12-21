@@ -4,13 +4,14 @@ import axios from 'axios'
 export const store = reactive({
     searchred: '',
     moviesList: [],
-    seriesList: [],
     myApiKey: 'f9eba7e9175561429bac90d77bb25cab',
 
-    getFilmsList(films) {
-        axios.get('https://api.themoviedb.org/3/search/movie', {
+    getMoviesList(query, typeMovie = 'movie') {
+        const url = typeMovie = 'movie' ? 'https://api.themoviedb.org/3/search/movie' :
+            'https://api.themoviedb.org/3/search/tv';
+        axios.get(url, {
             params: {
-                query: films,
+                query,
                 api_key: this.myApiKey,
             }
         })
@@ -24,23 +25,4 @@ export const store = reactive({
             .finally(function () {
             });
     },
-    getSeriestvList(series) {
-        axios.get('https://api.themoviedb.org/3/search/tv', {
-            params: {
-                query: series,
-                api_key: this.myApiKey,
-            }
-        })
-            .then((response) => {
-                this.seriesList = response.data.results;
-                console.log(response);
-
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-            .finally(function () {
-            });
-    },
-
 });
