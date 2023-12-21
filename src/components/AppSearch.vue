@@ -2,8 +2,8 @@
     <div>
         <h2>Search for Films</h2>
         <p>result: {{ searchResult() }}</p>
-        <input type="text" placeholder="Search films" v-model="searchFilms" @keyup.enter="store.getFilmsList(searchFilms)">
-        <button @click="store.getFilmsList(searchFilms)">Search</button>
+        <input type="text" placeholder="Searchred" v-model="searchred" @keyup.enter="store.getSeriestvList(searchred)">
+        <button @click="store.getSeriestvList(searchred)">Search</button>
     </div>
 </template>
 <script>
@@ -13,12 +13,12 @@ export default {
     data() {
         return {
             store,
-            searchFilms: '',
+            searchred: '',
         };
     },
     methods: {
         searchResult() {
-            return this.store.moviesList.length;
+            return this.store.seriesList.length;
         }
     },
 };
