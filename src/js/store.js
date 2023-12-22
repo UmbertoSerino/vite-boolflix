@@ -5,7 +5,7 @@ export const store = reactive({
     searchred: '',
     moviesList: [],
     myApiKey: 'f9eba7e9175561429bac90d77bb25cab',
-    urlImg: 'https://image.tmdb.org/t/p/w500',
+    urlImg: 'https://image.tmdb.org/t/p/w342',
     nextAverage: '',
 
     getMoviesList(query, typeMovie = 'movie') {

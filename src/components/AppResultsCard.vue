@@ -4,7 +4,14 @@
       <li v-for="movie in store.moviesList" :key="movie.id">
         <p> <strong>Title:</strong> {{ movie.title }} </p>
         <p v-if="movie.title !== movie.original_title"> <strong>Original Title:</strong> {{ movie.original_title}}</p>
-        <p> <strong>Language:</strong> {{ movie.original_language }}</p>
+        <p> <strong>Language:</strong>
+          <img v-if="movie.original_language === 'it'" src="../assets/img/it-flag.gif" alt="italian flag">
+          <img v-else-if="movie.original_language === 'fr'" src="../assets/img/fr-flag.gif" alt="france flag">
+          <img v-else-if="movie.original_language === 'gm'" src="../assets/img/gm-flag.gif" alt="german flag">
+          <img v-else-if="movie.original_language === 'es'" src="../assets/img/sp-flag.gif" alt="spanish flag">
+          <img v-else-if="movie.original_language === 'uk'" src="../assets/img/uk-flag.gif" alt="uk flag">
+          <p v-else> {{ movie.original_language}}</p>
+        </p>
         <p> <strong>Overview: </strong> {{ movie.overview }} </p>
           <div class="container-star-average">
             <p> <strong>Vote Average: </strong></p>
