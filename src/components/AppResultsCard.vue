@@ -6,15 +6,16 @@
         <p v-if="movie.title !== movie.original_title"> <strong>Original Title:</strong> {{ movie.original_title}}</p>
         <p> <strong>Language:</strong> {{ movie.original_language }}</p>
         <p> <strong>Overview: </strong> {{ movie.overview }} </p>
-        <p> <strong>Vote Average: </strong>
-          <div>
-            <i v-for="star in movie.nextAverage" class="fa-solid fa-star"></i>         
+          <div class="container-star-average">
+            <p> <strong>Vote Average: </strong></p>
+              <div v-for="star in 5">
+                <i v-if="star <= movie.nextAverage" class="fa-solid fa-star"></i>         
+                <i v-else class="fa-regular fa-star"></i>
+              </div>
+            </div>
+          <div class="container-img">
+              <img :src="store.urlImg + movie.poster_path" :alt="`Poster of ${movie.title}`">
           </div>
-          <i class="fa-regular fa-star"></i>
-          {{ movie.nextAverage }}</p>
-        <div class="container-img">
-            <img :src="store.urlImg + movie.poster_path" alt="">
-        </div>
       </li>
     </ol>
   </div>
@@ -41,7 +42,12 @@ div.container-img {
   }
 }
 
-i {
-  color: gold;
+div.container-star-average {
+  display: flex;
+  align-items: center;
+
+  i {
+    color: gold;
+  }
 }
 </style>
