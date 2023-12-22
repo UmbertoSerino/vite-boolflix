@@ -6,9 +6,10 @@ export const store = reactive({
     moviesList: [],
     myApiKey: 'f9eba7e9175561429bac90d77bb25cab',
     urlImg: 'https://image.tmdb.org/t/p/w500',
+    nextAverage: '',
 
     getMoviesList(query, typeMovie = 'movie') {
-        const url = typeMovie = 'movie' ? 'https://api.themoviedb.org/3/search/movie' :
+        const url = typeMovie === 'movie' ? 'https://api.themoviedb.org/3/search/movie' :
             'https://api.themoviedb.org/3/search/tv';
 
         axios.get(url, {
@@ -19,7 +20,9 @@ export const store = reactive({
         })
             .then((response) => {
                 this.moviesList = response.data.results;
-                this.searchImg = this.urlImg + response.data.results[0].poster_path;
+                this.moviesList.forEach(movie => {
+                    movie.nextAverage = Math.ceil(movie.vote_average / 2);
+                });
                 console.log(response);
             })
             .catch(function (error) {
@@ -27,5 +30,6 @@ export const store = reactive({
             })
             .finally(function () {
             });
-    },
+    }
+
 });

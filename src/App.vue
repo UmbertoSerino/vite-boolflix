@@ -8,4 +8,7 @@ import AppHeader from './components/AppHeader.vue';
   <AppMain />
 </template>
 
-<style scoped></style>
+<style lang="scss">
+@use './style/general.scss' as*;
+@use '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss' as*
+</style>

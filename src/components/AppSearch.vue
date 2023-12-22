@@ -3,7 +3,7 @@
         <h2>Search for Films</h2>
         <p>result: {{ searchResult() }}</p>
         <input type="text" placeholder="Searchred" v-model="searchred" @keyup.enter="store.getMoviesList(searchred)">
-        <button @click="store.getmoviesList(searchred)">Search</button>
+        <button @click="store.getMoviesList(searchred)">Search</button>
     </div>
 </template>
 <script>

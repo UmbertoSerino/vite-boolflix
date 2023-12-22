@@ -21,6 +21,9 @@ export default {
 
 <template>
   <h1>Main</h1>
+  <div class="icons">
+    <i class="fa-solid fa-star"></i>
+  </div>
   <AppSearch />
   <AppResultsCard />
 </template>
