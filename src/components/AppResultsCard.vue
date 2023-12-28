@@ -9,7 +9,7 @@
               <img :src="store.urlImg + movie.poster_path" :alt="`Poster of ${movie.title}`">
           </div>
         <p> <strong>Language:</strong>
-          <img v-if="languageFlags" :src="getImagePath(languageFlags)" :alt="`${movie.original_language} flag`">
+          <img v-if="languageFlags[movie.original_language]" :src="getImagePath(languageFlags[movie.original_language])" :alt="`${movie.original_language} flag`">
             <span v-else> {{ movie.original_language}}</span>
         </p>
         <p> <strong>Overview: </strong> {{ movie.overview }} </p>
