@@ -5,8 +5,7 @@ import AppResultsCard from './AppResultsCard.vue';
 export default {
   name: 'AppMain',
   components: {
-    AppSearch,
-    AppResultsCard
+    AppResultsCard,
   },
   data() {
     return {
@@ -20,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <h1>Main</h1>
+  <h1 class="">Main</h1>
   <AppSearch />
   <AppResultsCard />
 </template>

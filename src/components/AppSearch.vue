@@ -1,9 +1,10 @@
 <template>
     <div>
-        <h2>Search for Films</h2>
-        <p>result: {{ searchResult() }}</p>
-        <input type="text" placeholder="Searchred" v-model="searchred" @keyup.enter="store.getMoviesList(searchred)">
-        <button @click="store.getMoviesList(searchred)">Search</button>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search for Films" v-model="searchred" @keyup.enter="store.getMoviesList(searchred)">
+            <button class="btn btn-outline-success" type="submit" @click="store.getMoviesList(searchred)">Search</button>
+            <p>result: {{ searchResult() }}</p>
+        </form>
     </div>
 </template>
 <script>

@@ -33,11 +33,11 @@ export default {
       store,
       searchred: '',
       languageFlags: {
-        it: '../assets/img/it-flag.gif',
-        fr: '../assets/img/fr-flag.gif',
-        de: '../assets/img/gm-flag.gif',
-        es: '../assets/img/sp-flag.gif',
-        en: '../assets/img/en-flag.gif',
+        it: '../assets/img-language-flags/it-flag.gif',
+        fr: '../assets/img-language-flags/fr-flag.gif',
+        de: '../assets/img-language-flags/gm-flag.gif',
+        es: '../assets/img-language-flags/sp-flag.gif',
+        en: '../assets/img-language-flags/en-flag.gif',
       },
     }
   },
