@@ -30,6 +30,7 @@ export const store = reactive({
             })
             .finally(function () {
             });
-    }
+    },
+
 
 });

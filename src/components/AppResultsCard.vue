@@ -3,14 +3,14 @@
     <ol>
       <li v-for="movie in store.moviesList" :key="movie.id">
         <p> <strong>Title:</strong> {{ movie.title }} </p>
-        <p v-if="movie.title !== movie.original_title"> <strong>Original Title:</strong> {{ movie.original_title}}</p>
+        <p v-if="movie.title !== movie.original_title"> 
+          <strong>Original Title:</strong> {{ movie.original_title}}</p>
+          <div class="container-img">
+              <img :src="store.urlImg + movie.poster_path" :alt="`Poster of ${movie.title}`">
+          </div>
         <p> <strong>Language:</strong>
-          <img v-if="movie.original_language === 'it'" src="../assets/img/it-flag.gif" alt="italian flag">
-          <img v-else-if="movie.original_language === 'fr'" src="../assets/img/fr-flag.gif" alt="france flag">
-          <img v-else-if="movie.original_language === 'gm'" src="../assets/img/gm-flag.gif" alt="german flag">
-          <img v-else-if="movie.original_language === 'es'" src="../assets/img/sp-flag.gif" alt="spanish flag">
-          <img v-else-if="movie.original_language === 'uk'" src="../assets/img/uk-flag.gif" alt="uk flag">
-          <p v-else> {{ movie.original_language}}</p>
+          <img v-if="languageFlags" :src="getImagePath(languageFlags)" :alt="`${movie.original_language} flag`">
+            <span v-else> {{ movie.original_language}}</span>
         </p>
         <p> <strong>Overview: </strong> {{ movie.overview }} </p>
           <div class="container-star-average">
@@ -20,9 +20,6 @@
                 <i v-else class="fa-regular fa-star"></i>
               </div>
             </div>
-          <div class="container-img">
-              <img :src="store.urlImg + movie.poster_path" :alt="`Poster of ${movie.title}`">
-          </div>
       </li>
     </ol>
   </div>
@@ -35,9 +32,21 @@ export default {
     return {
       store,
       searchred: '',
+      languageFlags: {
+        it: '../assets/img/it-flag.gif',
+        fr: '../assets/img/fr-flag.gif',
+        de: '../assets/img/gm-flag.gif',
+        es: '../assets/img/sp-flag.gif',
+        en: '../assets/img/en-flag.gif',
+      },
     }
-
   },
+  methods: {
+    getImagePath(imgPath) {
+      return new URL(imgPath, import.meta.url).href;
+
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
