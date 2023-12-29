@@ -1,5 +1,7 @@
 <template lang="">
   <div>
+    <p>result: {{ searchResult() }}</p>
+
     <ol>
       <li v-for="movie in store.moviesList" :key="movie.id">
         <p> <strong>Title:</strong> {{ movie.title }} </p>
@@ -45,6 +47,9 @@ export default {
     getImagePath(imgPath) {
       return new URL(imgPath, import.meta.url).href;
 
+    },
+    searchResult() {
+      return this.store.moviesList.length;
     }
   }
 }

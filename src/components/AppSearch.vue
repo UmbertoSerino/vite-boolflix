@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search for Films" v-model="searchred" @keyup.enter="store.getMoviesList(searchred)">
-            <button class="btn btn-outline-success" type="submit" @click="store.getMoviesList(searchred)">Search</button>
-            <p>result: {{ searchResult() }}</p>
-        </form>
+    <div class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" v-model="searchred" @keyup.enter="store.getMoviesList(searchred)">
+        <button class="btn btn-danger" type="submit" @click="store.getMoviesList(searchred)">Search</button>
     </div>
 </template>
+
 <script>
 import { store } from '../js/store';
 export default {
@@ -16,11 +14,6 @@ export default {
             store,
             searchred: '',
         };
-    },
-    methods: {
-        searchResult() {
-            return this.store.moviesList.length;
-        }
     },
 };
 </script>

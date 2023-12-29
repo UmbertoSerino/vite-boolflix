@@ -31,6 +31,15 @@ export const store = reactive({
             .finally(function () {
             });
     },
+    searchResult() {
+        const numberResults = this.moviesList.length;
+        if (numberResults !== 0) {
+            return `Found ${numberResults} item`
+        } else {
+            return ` Not Found Result `;
+
+        }
+    }
 
 
 });

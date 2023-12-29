@@ -1,6 +1,5 @@
 <script>
 import { store } from '../js/store';
-import AppSearch from './AppSearch.vue';
 import AppResultsCard from './AppResultsCard.vue';
 export default {
   name: 'AppMain',
@@ -19,9 +18,13 @@ export default {
 </script>
 
 <template>
-  <h1 class="">Main</h1>
-  <AppSearch />
-  <AppResultsCard />
+  <article class="container text-white my_wrapper">
+    <AppResultsCard />
+  </article>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+article.my_wrapper {
+  padding-top: 150px;
+}
+</style>
