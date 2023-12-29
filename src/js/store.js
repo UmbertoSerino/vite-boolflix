@@ -33,13 +33,5 @@ export const store = reactive({
     },
     searchResult() {
         const numberResults = this.moviesList.length;
-        if (numberResults !== 0) {
-            return `Found ${numberResults} item`
-        } else {
-            return ` Not Found Result `;
-
-        }
     }
-
-
 });
